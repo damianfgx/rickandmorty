@@ -1,42 +1,40 @@
 
 
-const apiRick=async (pagina)=>{
+const apiRick = async (pagina) => {
 
-    let url="https://rickandmortyapi.com/api/character/?page="+pagina;
-    const api = await fetch(url);
-    const data=await api.json();
-    console.log(data);
-    divRes=document.querySelector("#resultado");
-    divRes.innerHTML=""
-    data.results.map(item=>{
+  let url = "https://rickandmortyapi.com/api/character/?page=" + pagina;
+  const api = await fetch(url);
+  const data = await api.json();
+  console.log(data);
+  divRes = document.querySelector("#resultado");
+  divRes.innerHTML = ""
+  data.results.map(item => {
 
-        divItem=document.createElement('div')
-        divItem.innerHTML=`
-        <div class="container-fluid">
-  
-        <div class="card mb-3" style="max-width: 500px;">
-          <div class="row g-0">
-            <div class="image-container col-md-4">
-              <img src="${item.image}" class="img-fluid rounded-start " alt="Personaje">
+    divItem = document.createElement('div')
+    divItem.innerHTML = `
+        <div class="container">
+          <div class="card" style="width: 18rem;">
+            <img src="${item.image}"   class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">${item.name}</h5>
             </div>
-            <div class="col-md-8">
-              <div class="card-body text-center">
-                <h5 class="card-title fw-bold">${item.name}</h5>
-                <p class="card-text fw-bold">Estatus: ${item.species}</p>
-                <p class="card-text fw-bold">Estatus: ${item.status}</p>
-               
-              </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><b>Estatus:</b> ${item.status}</li>
+              <li class="list-group-item"><b>Especie:</b> ${item.species}</li>
+              <li class="list-group-item"><b>Genero:</b> ${item.gender}</li>
+            </ul>
+            <div class="card-body">
+              <a class="">The Rick And Morty</a>
             </div>
           </div>
-        </div>
        
-      </div>
+        </div>
         
         `
-        divRes.appendChild(divItem);
-    });
+    divRes.appendChild(divItem);
+  });
 
-    
+
 
 }
 

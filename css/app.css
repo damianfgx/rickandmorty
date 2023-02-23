@@ -4,15 +4,25 @@ body{
 
 }
 
+.box{
+    display: grid;
+   /*  Cambia los valores para experimentar*/
+    align-content: center;
+ }
 
 #resultado{
+    gap: 16px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 18px;
-   
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(
+            400px,
+            1fr
+        )
+    )
 }
 
-.image-container{
-    display: flex;
+a{
+    text-decoration: none;
+    color: brown;
 }
-
